@@ -8,7 +8,7 @@ const Pokemon = ({ id, name, stats }) => {
   const [cart, setCart] = useContext(CartContext);
 
   const addToCart = () => {
-    const pokemon = { name, price: id };
+    const pokemon = { name, price: id, id };
     setCart((currentState) => [...currentState, pokemon]);
   };
 

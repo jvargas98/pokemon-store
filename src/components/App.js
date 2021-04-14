@@ -4,7 +4,7 @@ import CartProvider from "./CartContext";
 import Layout from "./Layout";
 import Home from "../pages/Home";
 import PokemonDetails from "../pages/PokemonDetails";
-import Cart from "./Cart";
+import CartDetails from "../pages/CartDetails";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
               path="/pokemon/:pokemonId"
               component={PokemonDetails}
             />
-            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/cart" component={CartDetails} />
           </Switch>
         </Layout>
       </CartProvider>

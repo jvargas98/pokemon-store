@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 
 const Cart = () => {
@@ -16,6 +17,11 @@ const Cart = () => {
         </ul>
         <br />
         <span>Total: ${totalPrice}</span>
+        <br />
+        <div className="dropdown-divider" />
+        <Link to="/cart" className="btn btn-link w-100">
+          View cart
+        </Link>
       </div>
     </div>
   );

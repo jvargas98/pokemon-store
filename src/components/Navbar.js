@@ -38,7 +38,7 @@ function Navbar() {
             </li>
             <li className="nav-item dropdown">
               <Link
-                to="/cart"
+                to="/"
                 className="nav-link"
                 id="navbarDropdownMenuLink"
                 role="button"

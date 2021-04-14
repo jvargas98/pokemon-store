@@ -11,7 +11,7 @@ const PokemonList = ({ pokemonList }) => {
         return (
           <div className="col-12 col-sm-4 col-lg-3 my-3">
             <Link
-              to={`/pokemons/${pokemon.url.match(/\/pokemon\/(\d+)\//)[1]}`}
+              to={`/pokemon/${pokemon.url.match(/\/pokemon\/(\d+)\//)[1]}`}
               className="text-reset text-decoration-none"
             >
               <PokemonListItem pokemon={pokemon} />

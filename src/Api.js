@@ -19,6 +19,9 @@ const api = {
     list() {
       return callApi("pokemon");
     },
+    read(pokemonId) {
+      return callApi(`pokemon/${pokemonId}`);
+    },
   },
 };
 

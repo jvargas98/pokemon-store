@@ -1,8 +1,17 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/forbid-prop-types */
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import { CartContext } from "./CartContext";
 
 const Pokemon = ({ id, name, stats }) => {
+  const [cart, setCart] = useContext(CartContext);
+
+  const addToCart = () => {
+    const pokemon = { name, price: id };
+    setCart((currentState) => [...currentState, pokemon]);
+  };
+
   return (
     <div className="container mt-4">
       <div className="row">
@@ -35,7 +44,11 @@ const Pokemon = ({ id, name, stats }) => {
             ))}
           </ul>
           <div>
-            <button type="button" className="btn btn-primary mt-4 w-100">
+            <button
+              type="button"
+              className="btn btn-primary mt-4 w-100"
+              onClick={addToCart}
+            >
               Add to cart
             </button>
           </div>

@@ -1,7 +1,12 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "./CartContext";
+import Cart from "./Cart";
 
 function Navbar() {
+  const [cart, setCart] = useContext(CartContext);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -31,10 +36,22 @@ function Navbar() {
                 Orders
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/" className="nav-link">
+            <li className="nav-item dropdown">
+              <Link
+                to="/cart"
+                className="nav-link"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
                 Cart
+                <span className="badge badge-primary ml-1 tex">
+                  {cart.length}
+                </span>
               </Link>
+              <Cart />
             </li>
           </ul>
         </div>

@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import PokemonDetails from "../pages/PokemonDetails";
 import CartDetails from "../pages/CartDetails";
 import Checkout from "../pages/Checkout";
+import Orders from "../pages/Orders";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             />
             <Route exact path="/cart" component={CartDetails} />
             <Route exact path="/checkout" component={Checkout} />
+            <Route exact path="/orders" component={Orders} />
           </Switch>
         </Layout>
       </CartProvider>

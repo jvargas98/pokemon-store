@@ -1,11 +1,13 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import Swal from "sweetalert2";
+import { CartContext } from "./CartContext";
 
 const PaymentForm = () => {
+  const [cart, setCart, orders, setOrders] = useContext(CartContext);
   const [isPaymentLoading, setPaymentLoading] = useState(false);
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
@@ -18,7 +20,7 @@ const PaymentForm = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ amountBody: 400 }),
+        body: JSON.stringify({ items: cart }),
       })
       .then((res) => {
         return res.json();
@@ -57,10 +59,11 @@ const PaymentForm = () => {
         text: paymentResult.error.message,
         icon: "error",
       });
-      alert();
     } else {
       // eslint-disable-next-line no-lonely-if
       if (paymentResult.paymentIntent.status === "succeeded") {
+        setOrders(cart);
+        setCart([]);
         Swal.fire({
           title: "Success!",
           text: "Payment succeeded",

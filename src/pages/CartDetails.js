@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/forbid-prop-types */
 import React, { useContext } from "react";
-import api from "../Api";
 import { CartContext } from "../components/CartContext";
 import CartList from "../components/CartList";
 

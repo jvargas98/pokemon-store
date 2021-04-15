@@ -5,8 +5,10 @@ export const CartContext = React.createContext();
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [orders, setOrders] = useState([]);
+
   return (
-    <CartContext.Provider value={[cart, setCart]}>
+    <CartContext.Provider value={[cart, setCart, orders, setOrders]}>
       {children}
     </CartContext.Provider>
   );

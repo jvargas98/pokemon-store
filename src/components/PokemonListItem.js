@@ -7,7 +7,7 @@ const PokemonListItem = ({ pokemon }) => {
     <div className="card">
       <img
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
-          pokemon.url.match(/\/pokemon\/(\d+)\//)[1]
+          pokemon.url ? pokemon.url.match(/\/pokemon\/(\d+)\//)[1] : pokemon.id
         }.png`}
         className="card-img-top w-50 mx-auto d-block"
         alt="..."

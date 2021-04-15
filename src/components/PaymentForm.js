@@ -15,7 +15,7 @@ const PaymentForm = () => {
 
   useEffect(() => {
     window
-      .fetch("http://localhost:4242/create-payment-intent", {
+      .fetch(`${process.env.REACT_APP_STRIPE_SERVER}create-payment-intent`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

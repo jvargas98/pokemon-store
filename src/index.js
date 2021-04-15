@@ -6,14 +6,20 @@ import Popper from "popper.js";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import React from "react";
 import ReactDOM from "react-dom";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import "./index.css";
 
 import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 
+const stripePromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY);
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Elements stripe={stripePromise}>
+      <App />
+    </Elements>
   </React.StrictMode>,
   document.getElementById("root")
 );

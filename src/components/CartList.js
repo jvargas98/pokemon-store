@@ -1,6 +1,7 @@
 /* eslint-disable react/forbid-prop-types */
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import CartListItem from "./CartListItem";
 
 const CartList = ({ cartList, total }) => {
@@ -16,6 +17,9 @@ const CartList = ({ cartList, total }) => {
       <div className="col-6">
         <h5>Total</h5>
         <h3>${total}.00</h3>
+        <Link to="/checkout" className="btn btn-primary">
+          Checkout
+        </Link>
       </div>
     </div>
   );

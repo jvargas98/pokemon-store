@@ -5,6 +5,7 @@ import Layout from "./Layout";
 import Home from "../pages/Home";
 import PokemonDetails from "../pages/PokemonDetails";
 import CartDetails from "../pages/CartDetails";
+import Checkout from "../pages/Checkout";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               component={PokemonDetails}
             />
             <Route exact path="/cart" component={CartDetails} />
+            <Route exact path="/checkout" component={Checkout} />
           </Switch>
         </Layout>
       </CartProvider>

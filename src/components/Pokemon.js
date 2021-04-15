@@ -2,6 +2,7 @@
 /* eslint-disable react/forbid-prop-types */
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import Swal from "sweetalert2";
 import { CartContext } from "./CartContext";
 
 const Pokemon = ({ id, name, stats }) => {
@@ -10,6 +11,11 @@ const Pokemon = ({ id, name, stats }) => {
   const addToCart = () => {
     const pokemon = { name, price: id, id };
     setCart((currentState) => [...currentState, pokemon]);
+    Swal.fire({
+      title: "Success!",
+      text: "Added to the cart",
+      icon: "success",
+    });
   };
 
   return (

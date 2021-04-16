@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
-import { CartContext } from "../components/CartContext";
+import { OrdersContext } from "../components/OrdersContext";
 import PokemonList from "../components/PokemonList";
 
 function Orders() {
-  const [cart, setCart, orders, setOrders] = useContext(CartContext);
+  const [orders] = useContext(OrdersContext);
 
   return (
     <div className="container">

@@ -1,10 +1,9 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 
 const Cart = () => {
-  const [cart, setCart] = useContext(CartContext);
+  const [cart] = useContext(CartContext);
   const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
 
   return (

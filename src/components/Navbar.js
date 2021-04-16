@@ -5,7 +5,7 @@ import { CartContext } from "./CartContext";
 import Cart from "./Cart";
 
 function Navbar() {
-  const [cart, setCart] = useContext(CartContext);
+  const [cart] = useContext(CartContext);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">

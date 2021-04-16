@@ -5,9 +5,11 @@ import React, { useState, useEffect, useContext } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import Swal from "sweetalert2";
 import { CartContext } from "./CartContext";
+import { OrdersContext } from "./OrdersContext";
 
 const PaymentForm = () => {
-  const [cart, setCart, orders, setOrders] = useContext(CartContext);
+  const [cart, setCart] = useContext(CartContext);
+  const [orders, setOrders] = useContext(OrdersContext);
   const [isPaymentLoading, setPaymentLoading] = useState(false);
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
@@ -62,7 +64,7 @@ const PaymentForm = () => {
     } else {
       // eslint-disable-next-line no-lonely-if
       if (paymentResult.paymentIntent.status === "succeeded") {
-        setOrders(cart);
+        setOrders((currentState) => [...currentState, ...cart]);
         setCart([]);
         Swal.fire({
           title: "Success!",

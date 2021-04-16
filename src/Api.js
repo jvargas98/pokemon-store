@@ -1,14 +1,13 @@
 const BASE_URL = "https://pokeapi.co/api/v2/";
 
-async function callApi(endpoint, options = {}) {
-  const opts = options;
-  opts.headers = {
+async function callApi(endpoint) {
+  const headers = {
     "Content-Type": "application/json",
     Accept: "application/json",
   };
 
   const url = BASE_URL + endpoint;
-  const response = await fetch(url, options);
+  const response = await fetch(url, headers);
   const data = await response.json();
 
   return data;
